@@ -1,5 +1,3 @@
-// Find "TODO" in the comments and follow the instructions.
-
 var emailInput = document.querySelector("#email");
 var passwordInput = document.querySelector("#password");
 var signUpButton = document.querySelector("#sign-up");
@@ -15,13 +13,16 @@ function displayMessage(type, message) {
 }
 
 function renderLastRegistered() {
-  // TODO: Fill in code here to retrieve the last email and password from storage.
-  // If they are null, return early from this function
-  // Else set the text of the userEmailSpan and userPasswordSpan
-  // to the corresponding values from local storage
+  var email = localStorage.getItem("email");
+  var password = localStorage.getItem("password");
+  if (!email || !password) {
+    return;
+  }
+  userEmailSpan.textContent = email;
+  userPasswordSpan.textContent = password;
 }
 
-signUpButton.addEventListener("click", function(event) {
+signUpButton.addEventListener("click", function (event) {
   event.preventDefault();
 
   var email = document.querySelector("#email").value;
@@ -36,6 +37,8 @@ signUpButton.addEventListener("click", function(event) {
 
     // TODO: Save email and password to localStorage
     // call function to render last registered email and password
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
   }
 });
 
