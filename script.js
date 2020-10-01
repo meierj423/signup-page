@@ -35,17 +35,8 @@ signUpButton.addEventListener("click", function (event) {
   } else {
     displayMessage("success", "Registered successfully");
 
-    // TODO: Save email and password to localStorage
-    // call function to render last registered email and password
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
+    renderLastRegistered();
   }
 });
-
-/* ----------------------------------------------------------------
-
-  NOTE: You should not store user passwords in client side storage! Passwords
-  are saved to storage in this activity for practice with local storage only.
-  Do not do this in production code.
-  
-   ---------------------------------------------------------------- */
